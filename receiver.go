@@ -8,9 +8,9 @@ import (
 	"time"
 
 	probing "github.com/prometheus-community/pro-bing"
-	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/pdata/pcommon"
 	"go.opentelemetry.io/collector/pdata/pmetric"
+	"go.opentelemetry.io/collector/pipeline"
 	"go.uber.org/zap"
 )
 
@@ -44,8 +44,8 @@ func newScraper(logger *zap.Logger, targets []Target) (*scraper, error) {
 	}, nil
 }
 
-func (s *scraper) ID() component.ID {
-	return component.NewID(component.DataTypeMetrics)
+func (s *scraper) ID() pipeline.Signal {
+	return pipeline.SignalMetrics
 }
 
 func (s *scraper) Scrape(ctx context.Context) (pmetric.Metrics, error) {

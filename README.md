@@ -65,13 +65,13 @@ dist:
   name: otelcol-dev
   description: Basic OTel Collector distribution for Developers
   output_path: ./otelcol-dev
-  otelcol_version: 0.108.1
+  otelcol_version: 0.111.0
 
 exporters:
-  - gomod: go.opentelemetry.io/collector/exporter/debugexporter v0.108.1
+  - gomod: go.opentelemetry.io/collector/exporter/debugexporter v0.111.0
 
 processors:
-  - gomod: go.opentelemetry.io/collector/processor/batchprocessor v0.108.1
+  - gomod: go.opentelemetry.io/collector/processor/batchprocessor v0.111.0
 
 receivers:
   - gomod: github.com/thmshmm/icmpcheckreceiver v0.1.0

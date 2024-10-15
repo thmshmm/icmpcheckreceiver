@@ -3,6 +3,7 @@ package icmpcheckreceiver
 import (
 	"context"
 	"errors"
+
 	"github.com/thmshmm/icmpcheckreceiver/internal/metadata"
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/consumer"
@@ -45,7 +46,7 @@ func createMetricsReceiver(
 		return nil, err
 	}
 
-	scraper, err := scraperhelper.NewScraper(metadata.Type.String(), icmpScraper.Scrape)
+	scraper, err := scraperhelper.NewScraper(metadata.Type, icmpScraper.Scrape)
 	if err != nil {
 		return nil, err
 	}

@@ -3,7 +3,7 @@ package icmpcheckreceiver
 import (
 	"time"
 
-	"go.opentelemetry.io/collector/receiver/scraperhelper"
+	"go.opentelemetry.io/collector/scraper/scraperhelper"
 )
 
 type Config struct {

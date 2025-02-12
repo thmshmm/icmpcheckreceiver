@@ -32,23 +32,23 @@ type pingResult struct {
 	StatsTimestamp time.Time
 }
 
-type scraper struct {
+type icpmscraper struct {
 	logger  *zap.Logger
 	targets []Target
 }
 
-func newScraper(logger *zap.Logger, targets []Target) (*scraper, error) {
-	return &scraper{
+func newScraper(logger *zap.Logger, targets []Target) (*icpmscraper, error) {
+	return &icpmscraper{
 		logger:  logger,
 		targets: targets,
 	}, nil
 }
 
-func (s *scraper) ID() pipeline.Signal {
+func (s *icpmscraper) ID() pipeline.Signal {
 	return pipeline.SignalMetrics
 }
 
-func (s *scraper) Scrape(ctx context.Context) (pmetric.Metrics, error) {
+func (s *icpmscraper) Scrape(ctx context.Context) (pmetric.Metrics, error) {
 	metrics := pmetric.NewMetrics()
 	scopeMetrics := metrics.ResourceMetrics().AppendEmpty().ScopeMetrics().AppendEmpty().Metrics()
 
